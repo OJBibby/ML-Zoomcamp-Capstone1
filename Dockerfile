@@ -11,6 +11,4 @@ COPY ["train.py", "service.py", "Data.csv", "./"]
 
 RUN python "train.py"
 
-EXPOSE 9696
-
 ENTRYPOINT ["bentoml", "serve", "service.py:svc"]
