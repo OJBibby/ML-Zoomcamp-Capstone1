@@ -36,5 +36,5 @@ To then run through docker type (replace <image id> with id generated in last st
 
 Alternatively to pipenv, run through docker using my Dockerfile by typing (might take some time):
 
-	docker build -t fraud_detection .
-	docker run -p 3000:3000 -it --rm fraud_detection
+	docker build -t fraud-detection .
+	docker run -p 3000:3000 -it --rm fraud-detection

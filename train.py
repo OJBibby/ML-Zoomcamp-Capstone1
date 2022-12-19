@@ -3,8 +3,10 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction import DictVectorizer
 import xgboost as xgb
+import bentoml
 
 df = pd.read_csv('Data.csv')
+df = df.drop(columns=['device_fraud_count'])
 df = df.drop(columns=['prev_address_months_count'])
 df['current_address_months_count'] = df['current_address_months_count'].replace(-1, 0)
 df['bank_months_count'] = df['bank_months_count'].replace(-1, df['bank_months_count'].loc[df['bank_months_count'] != -1].median())
@@ -20,13 +22,14 @@ X_train, X_val, y_train, y_val = train_test_split(X_full_train, y_full_train, te
 dtrain = xgb.DMatrix(X_train, label=y_train, feature_names=dv.get_feature_names())
 dval = xgb.DMatrix(X_val, label=y_val, feature_names=dv.get_feature_names())
 xgb_params = {
-    'eta': 0.4,
+    'eta': 0.25,
     'max_depth': 2,
-    'colsample_bytree': 0.8,
-    'subsample': 1,
+    'colsample_bytree': 0.7,
+    'subsample': 0.9,
     'min_child_weight': 1.5,
-    'gamma': 0.4,
-    'lambda': 10,
+    'gamma': 1.6,
+    'lambda': 16,
+    'alpha': 0.8,
 
     'objective': 'binary:logistic',
     'nthread': 8,
@@ -34,5 +37,5 @@ xgb_params = {
     'seed': 42,
     'verbosity': 1,
 }
-model = xgb.train(xgb_params, dtrain, evals=watchlist, num_boost_round=100)
+model = xgb.train(xgb_params, dtrain, num_boost_round=100)
 print(bentoml.xgboost.save_model("fraud_detection_model", model, custom_objects={"dictVectorizer": dv}))
