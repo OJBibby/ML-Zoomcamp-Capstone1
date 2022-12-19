@@ -1,0 +1,6 @@
+These commands were used to prep and send the model to the cloud via elastic beanstalk:
+
+eb init -p docker -r eu-west-1 fraud-detection 
+eb create fraud-detection-env
+
+After this, predict-test.py was run to send data to the cloud for prediction.
