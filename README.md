@@ -39,4 +39,4 @@ Alternatively to pipenv, run through docker using my Dockerfile by typing (might
 	docker run -p 3000:3000 -it --rm fraud-detection
 
 Model was hosted on AWS using the commands in ./cloud_pics/cloud_prep.txt.
-Screenshots of model running on the AWS cloud and a response from the cloud are in ./cloud_pics/
+Screenshots of model running on the AWS cloud and a response from the cloud are in ./cloud_pics/.
