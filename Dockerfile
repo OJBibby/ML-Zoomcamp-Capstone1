@@ -7,7 +7,7 @@ COPY ["Pipfile", "Pipfile.lock", "./"]
 
 RUN pipenv install --system --deploy
 
-COPY ["train.py", "service.py", "insurance.csv", "./"]
+COPY ["train.py", "service.py", "Data.csv", "./"]
 
 RUN python "train.py"
 

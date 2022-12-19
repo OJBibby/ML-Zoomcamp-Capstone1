@@ -16,7 +16,7 @@ dv = model_ref.custom_objects['dictVectorizer']
 
 model_runner = model_ref.to_runner()
 
-svc = bentoml.Service("fraud_detection_regressor", runners=[model_runner])
+svc = bentoml.Service("fraud_detection_classifier", runners=[model_runner])
 
 @svc.api(input=JSON(pydantic_model=FraudDetection), output=JSON())
 def classify(fraud_info):
