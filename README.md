@@ -1,7 +1,7 @@
 # Bank Account Fraud Detection
 Data used is sampled from a larger dataset from: https://www.kaggle.com/datasets/sgpjesus/bank-account-fraud-dataset-neurips-2022.
 
-Data was sampled using the script contained in sample.py. As the original dataset was heavily imbalanced undersampling was used.
+Data was sampled using the script contained in sample.py. As the original dataset was heavily imbalanced, undersampling was used.
 
 It is important for banks to be able to detect fraudulent activity in order to protect the bank's, and customer's, interests.
 This model could be used to flag activity for closer inspection.
