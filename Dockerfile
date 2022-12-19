@@ -11,6 +11,6 @@ COPY ["train.py", "service.py", "Data.csv", "./"]
 
 RUN python "train.py"
 
-EXPOSE 8080
+EXPOSE 3000
 
 ENTRYPOINT ["bentoml", "serve", "service.py:svc"]
