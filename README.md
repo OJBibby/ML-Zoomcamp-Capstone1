@@ -29,7 +29,7 @@ To containerize via bentoml type (make sure docker is running):
 
 	bentoml containerize fraud_detection_classifier:latest
 
-To then run through docker type (replace <image id> with id generated in last step):
+To then run through docker type (replace image id with id generated in last step):
 
 	docker run -it --rm -p 3000:3000 <image id> serve --production
 
